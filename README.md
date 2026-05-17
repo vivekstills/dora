@@ -1,0 +1,21 @@
+# Daily Quest Generator
+
+A tiny terminal app written in Rust that gives you a daily "quest" based on your mood, free time, and chosen difficulty.
+
+This is a **beginner Rust project** — I started learning Rust very recently, and I built this to practice the basics (stdin, functions, `match`, vectors, loops). It is intentionally simple and not idiomatic-expert Rust. It exists for learning and for fun.
+
+## Run it
+
+You need [Rust](https://www.rust-lang.org/tools/install) installed. Then:
+
+```bash
+cargo run
+```
+
+## What it does
+
+It asks for your name, mood, free time, and difficulty, then prints a quest and a fake "XP reward". You can keep generating quests until you quit.
+
+## Why this exists
+
+To practice Rust fundamentals in a project that's actually fun to share with friends. Suggestions welcome!
