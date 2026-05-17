@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "daily_quest_generator"
+name = "dora"
 version = "0.1.0"

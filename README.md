@@ -1,4 +1,4 @@
-# Daily Quest Generator
+# Dora
 
 A tiny terminal app written in Rust that gives you a daily "quest" based on your mood, free time, and chosen difficulty.
 

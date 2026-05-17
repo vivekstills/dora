@@ -2,7 +2,7 @@ use std::io;
 use std::io::Write;
 
 fn main() {
-    println!("=== Daily Quest Generator ===");
+    println!("=== Dora — Your Daily Quest Generator ===");
     println!();
 
     loop {
