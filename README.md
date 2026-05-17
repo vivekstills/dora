@@ -16,6 +16,3 @@ cargo run
 
 It asks for your name, mood, free time, and difficulty, then prints a quest and a fake "XP reward". You can keep generating quests until you quit.
 
-## Why this exists
-
-To practice Rust fundamentals in a project that's actually fun to share with friends. Suggestions welcome!
