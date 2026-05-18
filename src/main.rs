@@ -1,5 +1,7 @@
 use std::io;
 use std::io::Write;
+use std::thread;
+use std::time::Duration;
 
 fn main() {
     println!("=== Dora — Your Daily Quest Generator ===");
@@ -32,6 +34,11 @@ fn main() {
         println!("Reward:");
         println!("{}", reward);
         println!();
+
+        let start = ask("Start the quest timer? (y/n): ");
+        if start.to_lowercase().trim() == "y" {
+            run_timer(free_time);
+        }
 
         let again = ask("Generate another quest? (y/n): ");
         if again.to_lowercase().trim() != "y" {
@@ -77,6 +84,19 @@ fn pick_quest(mood: &str, free_time: u32) -> String {
     };
 
     format!("{}{}", base, mood_line)
+}
+
+fn run_timer(minutes: u32) {
+    let mut remaining = minutes * 60;
+    while remaining > 0 {
+        let mm = remaining / 60;
+        let ss = remaining % 60;
+        print!("\rTime left: {:02}:{:02} ", mm, ss);
+        io::stdout().flush().unwrap();
+        thread::sleep(Duration::from_secs(1));
+        remaining -= 1;
+    }
+    println!("\rTime's up! Quest complete.       ");
 }
 
 fn pick_reward(free_time: u32) -> String {
