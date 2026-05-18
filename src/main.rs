@@ -10,7 +10,6 @@ fn main() {
         let mood = ask("Mood (happy, tired, bored, stressed...): ");
         let time_input = ask("Free time in minutes: ");
 
-        // Try to turn the time into a number. If it fails, fall back to 15.
         let free_time: u32 = match time_input.trim().parse() {
             Ok(n) => n,
             Err(_) => {
@@ -43,16 +42,14 @@ fn main() {
     }
 }
 
-// Prints a prompt and reads one line from the user.
 fn ask(prompt: &str) -> String {
     print!("{}", prompt);
-    io::stdout().flush().unwrap(); // make sure the prompt shows before input
+    io::stdout().flush().unwrap();
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
     input.trim().to_string()
 }
 
-// Picks a quest based on mood and free time.
 fn pick_quest(mood: &str, free_time: u32) -> String {
     let quests = vec![
         "Drink a glass of water and stretch for 2 minutes.",
@@ -68,11 +65,9 @@ fn pick_quest(mood: &str, free_time: u32) -> String {
         "Learn one new thing in Rust and write a tiny example.",
     ];
 
-    // Very simple "random": use the length of mood + free_time as an index.
     let index = (mood.len() as u32 + free_time) as usize % quests.len();
     let base = quests[index];
 
-    // Add a funny mood-specific message.
     let mood_line = match mood.to_lowercase().as_str() {
         "tired" => " (Go easy on yourself, hero. The couch is also a dungeon.)",
         "happy" => " (You're glowing today! Spread the vibes.)",
@@ -84,7 +79,6 @@ fn pick_quest(mood: &str, free_time: u32) -> String {
     format!("{}{}", base, mood_line)
 }
 
-// Picks a reward based on how much time you put in.
 fn pick_reward(free_time: u32) -> String {
     if free_time >= 45 {
         String::from("+50 XP, +3 Willpower, and a rare loot drop")
